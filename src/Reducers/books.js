@@ -1,8 +1,10 @@
-import redux from 'redux'
+import {createStore} from 'redux'
 
 const booksReducer = (state, action) => {
     return state
 }
 
 
-const store = redux.createStore(booksReducer)
+const store = createStore(booksReducer)
+
+export default store
