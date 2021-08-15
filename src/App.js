@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import BookForm from "./Components/BookForm";
+import BookList from "./Components/BookList";
+
+const bookData = [
+
+]
 
 function App() {
+
+  const [initBooks, setBook] = useState(bookData)
+
+  const addBookHandler = book => {
+    setBook(prevData =>{
+      return[...prevData, book]
+    })
+  };
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BookList books={initBooks}/>
+      <BookForm onAddBook={addBookHandler}/>
     </div>
   );
 }
